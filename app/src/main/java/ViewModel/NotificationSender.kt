@@ -49,9 +49,9 @@ class NotificationSender(context: Context) {
         Log.v("delay", "сработает через: " + difference.toString() + " минут")
 
         val notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(
-            periodHours, TimeUnit.HOURS)
+            periodHours, TimeUnit.DAYS)
             .setInputData(data.build())
-            .setInitialDelay(difference, TimeUnit.MINUTES)
+            .setInitialDelay(difference, TimeUnit.DAYS)
             .addTag(tag)
             .build()
 
