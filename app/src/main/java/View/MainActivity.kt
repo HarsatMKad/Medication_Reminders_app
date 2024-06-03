@@ -20,8 +20,6 @@ import java.util.concurrent.TimeUnit
 
 
 class MainActivity : AppCompatActivity() {
-    private val CHANNEL_ID = "channel_id_example_01"
-    private val notification_Id = 101
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
