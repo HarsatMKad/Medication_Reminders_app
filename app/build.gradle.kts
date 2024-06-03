@@ -109,7 +109,8 @@ dependencies {
     testImplementation("junit:junit:$rootProject.junitVersion")
     androidTestImplementation("androidx.arch.core:core-testing:$rootProject.coreTestingVersion")
     androidTestImplementation("androidx.test.ext:junit:$rootProject.androidxJunitVersion")
-    
+
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
