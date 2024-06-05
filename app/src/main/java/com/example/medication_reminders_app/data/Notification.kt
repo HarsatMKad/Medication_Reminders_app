@@ -25,9 +25,7 @@ class Notification(
     @ColumnInfo(name = "hours")val hours: Int,
     @ColumnInfo(name = "minutes")val minutes: Int,
     @ColumnInfo(name = "period")val period: Long,
-    @ColumnInfo(name = "cureId")val cureId: Long,
-    @ColumnInfo(name = "isTaken")val isTaken: Boolean,
-    @ColumnInfo(name = "isComplete")val isComplete: Boolean) {
+    @ColumnInfo(name = "cureId")val cureId: Long) {
         @PrimaryKey(autoGenerate = true) var id = 0
 }
 
