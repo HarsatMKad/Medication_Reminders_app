@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(Cure::class, Notification::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Cure::class, Notification::class), version = 2, exportSchema = false)
 abstract class RemindersDatabase : RoomDatabase() {
 
     abstract fun getCuresDao(): CuresDao

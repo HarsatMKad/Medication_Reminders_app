@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#3E7E41"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/nameCureNoteReady"
+        android:layout_width="388dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#3E7E41"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toEndOf="@+id/timeCureNoteReady"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/changeBtnNotifReady"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#CFA26B"
+        android:text="Изменить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameCureNoteReady"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/delBtnNotifReady"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#BF6C6C"
+        android:text="Удалить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toEndOf="@+id/changeBtnNotifReady"
+        app:layout_constraintTop_toBottomOf="@+id/nameCureNoteReady"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/timeCureNoteReady"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:background="#3E7E41"
+        android:text="00:00"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126" />
+
+    <TextView
+        android:id="@+id/doseCureNoteReady"
+        android:layout_width="150dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="5dp"
+        android:background="#3E7E41"
+        android:text="Дозировка:"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameCureNoteReady" />
+
+    <Button
+        android:id="@+id/acceptBtnReady"
+        android:layout_width="114dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#80AC4E"
+        android:text="Принять"
+        app:layout_constraintBottom_toTopOf="@+id/delBtnNotifReady"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <Button
+        android:id="@+id/putoffBtnReady"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#439FB6"
+        android:text="Отложить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/delBtnNotifReady"
+        app:layout_constraintTop_toBottomOf="@+id/acceptBtnReady"
+        app:layout_constraintVertical_bias="0.629" />
+</androidx.constraintlayout.widget.ConstraintLayout>

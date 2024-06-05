@@ -5,12 +5,15 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.LifecycleOwner
 import androidx.work.Data
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import com.example.medication_reminders_app.data.Notification
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -29,16 +32,18 @@ class NotificationSender(context: Context) {
 
     //Создает повторяющееся уведомление
     @RequiresApi(Build.VERSION_CODES.O)
-    fun addSend(title: String, desctiption: String, mainText: String, hours: Int, minuts: Int, periodHours: Long, tag: String) {
+    fun addSend(notification: Notification) {
         val data = Data.Builder()
-        data.putString("name", title)
-        data.putString("text", desctiption)
-        data.putString("mainText", mainText)
+        data.putString("name", notification.header)
+        data.putString("text", notification.shortDescription)
+        data.putString("mainText", notification.description)
 
         val dnow = LocalDateTime.now().plusHours(7)
-        val dateNow = LocalDate.now()
-        var dlate = LocalDateTime.of(dateNow, LocalTime.of(hours, minuts))
-
+        var dateNow = LocalDate.now()
+        if(notification.hours <= 7){
+            dateNow = LocalDate.now().plusDays(1)
+        }
+        var dlate = LocalDateTime.of(dateNow, LocalTime.of(notification.hours, notification.minutes))
         var difference = Duration.between(dnow, dlate).seconds/60
 
         if(difference < 0){
@@ -46,12 +51,13 @@ class NotificationSender(context: Context) {
             difference = Duration.between(dnow, dlate).seconds/60
         }
 
-        Log.v("delay", "сработает через: " + difference.toString() + " минут")
+        Toast.makeText(c, "Сработает через: " + difference.toString() + " минут", Toast.LENGTH_SHORT).show()
 
+        val tag = notification.id.toString()
         val notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(
-            periodHours, TimeUnit.DAYS)
+            notification.period, TimeUnit.DAYS)
             .setInputData(data.build())
-            .setInitialDelay(difference, TimeUnit.DAYS)
+            .setInitialDelay(difference, TimeUnit.MINUTES)
             .addTag(tag)
             .build()
 
@@ -71,18 +77,6 @@ class NotificationSender(context: Context) {
     //удаляет повторяющиеся события(уведомления) по его id
     fun delSendById(id: UUID){
         WorkManager.getInstance(c).cancelWorkById(id)
-    }
-
-    //выводит в логи данные о текущих повторяющихся событиях (криво, но работает)
-    fun logSendsTest(tag: String){
-        WorkManager.getInstance(c).getWorkInfosByTagLiveData(tag)
-            .observe(c as LifecycleOwner, {
-                Log.v("1", "Начало")
-                for(i in 0..it.size-1){
-                    Log.d(it[i].tags.toString(),  "onChanged: " + it[i].state + " id: " + it[i].id.toString() + " delay(mills): " + it[i].initialDelayMillis);
-                }
-                Log.v("1", "Конец")
-            })
     }
 
     //создает канал для уведомлений
