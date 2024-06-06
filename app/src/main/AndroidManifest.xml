@@ -15,10 +15,16 @@
         android:theme="@style/Theme.Medication_Reminders_app"
         tools:targetApi="31">
         <activity
-            android:name="View.NotificationCreate"
-            android:exported="false" />
+            android:name="View.JournalList"
+            android:exported="true" />
         <activity
-            android:name="View.MainActivity"
+            android:name="View.CureSingle"
+            android:exported="true" />
+        <activity
+            android:name="View.CureCreate"
+            android:exported="true" />
+        <activity
+            android:name="View.CureList"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
