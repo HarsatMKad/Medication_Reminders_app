@@ -21,7 +21,9 @@ val READY_TYPE = 1
 val WAITING_TYPE = 2
 class NotificationAdapter(val context: Context,
                           val notifEdit: NotifClickEditInterface,
-                          val notifDel: NotifClickDeleteInterface): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+                          val notifDel: NotifClickDeleteInterface,
+                          val notifAcept: NotifClickAcceptInterface,
+                          val notifPutoff: NotifClickPutoffInterface): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
     private val notifications = ArrayList<NotificationWithCure>()
     class readyNotifHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleText = itemView.findViewById<TextView>(R.id.nameCureNoteReady)
@@ -49,11 +51,32 @@ class NotificationAdapter(val context: Context,
         val titleText = itemView.findViewById<TextView>(R.id.nameCureNote)
         val doseText = itemView.findViewById<TextView>(R.id.doseCureNote)
         val timeText = itemView.findViewById<TextView>(R.id.timeCureNote)
+        val timerText = itemView.findViewById<TextView>(R.id.difTimeNotif)
         val editBtn = itemView.findViewById<Button>(R.id.changeBtnNotif)
         val dellBtn = itemView.findViewById<Button>(R.id.delBtnNotif)
+        @RequiresApi(Build.VERSION_CODES.O)
         fun bind(notification: NotificationWithCure){
             titleText.setText(notification.cure.title)
             doseText.setText("Дозировка: " + notification.cure.dosage.toString())
+
+            val dnow = LocalDateTime.now().plusHours(7)
+            var dateNow = LocalDate.now()
+            if(notification.notification.hours <= 7){
+                dateNow = LocalDate.now().plusDays(1)
+            }
+            var dlate = LocalDateTime.of(dateNow, LocalTime.of(notification.notification.hours, notification.notification.minutes))
+            var difference = Duration.between(dnow, dlate).seconds/60
+
+            if(difference < 0){
+                dlate = LocalDateTime.of(dateNow, LocalTime.of(15, 0)).plusDays(1)
+                difference = Duration.between(dnow, dlate).seconds/60
+            }
+
+            if(difference/60 >= 2) {
+                timerText.text = (difference/60).toString() + " ч."
+            } else{
+                timerText.text = difference.toString() + " мин."
+            }
 
             var time = "00:00"
             if(notification.notification.minutes < 10){
@@ -79,7 +102,10 @@ class NotificationAdapter(val context: Context,
     @RequiresApi(Build.VERSION_CODES.O)
     override fun getItemViewType(position: Int): Int {
         val dnow = LocalDateTime.now().plusHours(7)
-        val dateNow = LocalDate.now()
+        var dateNow = LocalDate.now()
+        if(notifications[position].notification.hours <= 7){
+            dateNow = LocalDate.now().plusDays(1)
+        }
         var dlate = LocalDateTime.of(dateNow, LocalTime.of(notifications[position].notification.hours, notifications[position].notification.minutes)).plusMinutes(5)
         var difference = Duration.between(dnow, dlate).seconds/60
 
@@ -95,6 +121,7 @@ class NotificationAdapter(val context: Context,
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = notifications[position]
 
@@ -105,6 +132,12 @@ class NotificationAdapter(val context: Context,
             }
             holder.dellBtn.setOnClickListener {
                 notifDel.onDeleteClick(data.notification)
+            }
+            holder.acceptBtn.setOnClickListener {
+                notifAcept.onAcceptClick(data)
+            }
+            holder.putoffBtn.setOnClickListener {
+                notifPutoff.onPutoffClick(data.notification)
             }
         }
 
@@ -137,3 +170,12 @@ interface NotifClickDeleteInterface {
 interface NotifClickEditInterface {
     fun onEditClick(notification: NotificationWithCure)
 }
+
+interface NotifClickAcceptInterface {
+    fun onAcceptClick(notification: NotificationWithCure)
+}
+
+interface NotifClickPutoffInterface {
+    fun onPutoffClick(notification: Notification)
+}
+

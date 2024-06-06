@@ -36,7 +36,8 @@ class SerializableNotification(
     val period: Long,
     val cureId: Int): Serializable
 
-class NotificationListActivity : AppCompatActivity(), NotifClickDeleteInterface, NotifClickEditInterface {
+class NotificationListActivity : AppCompatActivity(), NotifClickDeleteInterface,
+    NotifClickEditInterface, NotifClickAcceptInterface, NotifClickPutoffInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notification_list)
@@ -46,7 +47,7 @@ class NotificationListActivity : AppCompatActivity(), NotifClickDeleteInterface,
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerNotification)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = NotificationAdapter(this, this, this)
+        val adapter = NotificationAdapter(this, this, this, this, this)
         recyclerView.adapter = adapter
 
         val viewModelList = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(
@@ -95,5 +96,11 @@ class NotificationListActivity : AppCompatActivity(), NotifClickDeleteInterface,
         this.finish()
     }
 
+    override fun onAcceptClick(notification: NotificationWithCure) {
+        Log.v("accept", "accept")
+    }
 
+    override fun onPutoffClick(notification: Notification) {
+        Log.v("putoff", "putoff")
+    }
 }

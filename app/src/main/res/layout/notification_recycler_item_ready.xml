@@ -86,7 +86,7 @@
 
     <Button
         android:id="@+id/acceptBtnReady"
-        android:layout_width="114dp"
+        android:layout_width="126dp"
         android:layout_height="61dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="#80AC4E"
@@ -100,11 +100,11 @@
 
     <Button
         android:id="@+id/putoffBtnReady"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="126dp"
+        android:layout_height="59dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="#439FB6"
-        android:text="Отложить"
+        android:text="Отложить на 20мин"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
