@@ -18,6 +18,7 @@ class CureList : AppCompatActivity(), CureClickInterface, CureDeleteInterface, C
     lateinit var recyclerViewCure: RecyclerView
     lateinit var buttonCreate: Button
     lateinit var buttonBack: Button
+    lateinit var buttonJournal: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +26,7 @@ class CureList : AppCompatActivity(), CureClickInterface, CureDeleteInterface, C
 
         recyclerViewCure = findViewById(R.id.recyclerViewCure)
         buttonCreate = findViewById(R.id.buttonCreate)
-        buttonBack = findViewById(R.id.buttonBack)
+        buttonJournal = findViewById(R.id.buttonJournal)
 
         recyclerViewCure.layoutManager = LinearLayoutManager(this)
 
@@ -46,6 +47,12 @@ class CureList : AppCompatActivity(), CureClickInterface, CureDeleteInterface, C
 
         buttonCreate.setOnClickListener {
             val intent = Intent(this@CureList, CureCreate::class.java)
+            startActivity(intent)
+            this.finish()
+        }
+
+        buttonJournal.setOnClickListener {
+            val intent = Intent(this@CureList, JournalList::class.java)
             startActivity(intent)
             this.finish()
         }

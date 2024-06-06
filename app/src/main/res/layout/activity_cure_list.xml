@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/buttonBack"
+        android:id="@+id/buttonJournal"
         android:layout_width="110dp"
         android:layout_height="60dp"
         android:text="Журнал"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonNotification"
         android:layout_width="141dp"
         android:layout_height="60dp"
         android:text="Уведомления"

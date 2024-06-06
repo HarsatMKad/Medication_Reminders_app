@@ -13,23 +13,44 @@ import com.example.medication_reminders_app.data.Journal
 
 class JournalList : AppCompatActivity(), JournalDeleteInterface {
     lateinit var viewModel: JournalViewModel
-    lateinit var recyclerViewCure: RecyclerView
+    lateinit var recyclerViewJournal: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cure_list)
+        setContentView(R.layout.activity_journal_list)
 
-        recyclerViewCure = findViewById(R.id.recyclerViewCure)
+        recyclerViewJournal = findViewById(R.id.recyclerViewJournal)
 
-        recyclerViewCure.layoutManager = LinearLayoutManager(this)
+        recyclerViewJournal.layoutManager = LinearLayoutManager(this)
 
         val journalAdapter = JournalAdapter(this, this)
 
-        recyclerViewCure.adapter = journalAdapter
+        recyclerViewJournal.adapter = journalAdapter
 
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
         ).get(JournalViewModel::class.java)
+
+        viewModel.addJournal(Journal(
+            "babubaba",
+            20,
+            "20.02.2024",
+            true
+        ))
+
+        viewModel.addJournal(Journal(
+            "fffsfqsfqsfa",
+            40,
+            "01.06.2024",
+            false
+        ))
+
+        viewModel.addJournal(Journal(
+            "ufffiaaaa",
+            25,
+            "12.06.2024",
+            true
+        ))
 
         viewModel.journalData.observe(this, Observer { list ->
             list?.let {
