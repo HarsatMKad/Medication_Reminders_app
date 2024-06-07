@@ -14,6 +14,12 @@ import com.example.medication_reminders_app.R
 import Model.Cure.Cure
 import View.Journal.JournalList
 import View.Notification.NotificationListActivity
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 
 class CureList : AppCompatActivity(), CureClickInterface, CureDeleteInterface, CureEditInterface {
     lateinit var viewModel: CureViewModel
@@ -25,6 +31,14 @@ class CureList : AppCompatActivity(), CureClickInterface, CureDeleteInterface, C
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cure_list)
+
+        if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+                PackageManager.PERMISSION_GRANTED) {
+            }  else {
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
 
         recyclerViewCure = findViewById(R.id.recyclerViewCure)
         buttonCreate = findViewById(R.id.buttonCreate)
@@ -94,5 +108,15 @@ class CureList : AppCompatActivity(), CureClickInterface, CureDeleteInterface, C
         intent.putExtra("cureId", cure.id)
         startActivity(intent)
         this.finish()
+    }
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            // Permission Granted
+        } else {
+            // Permission Denied / Cancel
+        }
     }
 }
