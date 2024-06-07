@@ -72,10 +72,11 @@ class NotificationAdapter(val context: Context,
             var difference = Duration.between(dnow, dlate).seconds/60
 
             if(difference < 0){
-                dlate = LocalDateTime.of(dateNow, LocalTime.of(15, 0)).plusDays(1)
+                dlate = LocalDateTime.of(dateNow, LocalTime.of(notification.notification.hours, notification.notification.minutes)).plusDays(1)
                 difference = Duration.between(dnow, dlate).seconds/60
             }
-            difference += notification.notification.days*60*24
+
+            difference += (notification.notification.period-1) *60*24
 
             if(difference/60 >= 2) {
                 timerText.text = (difference/60).toString() + " ч."
@@ -164,8 +165,6 @@ class NotificationAdapter(val context: Context,
 
                 }
             }.start()
-
-
 
             holder.editBtn.setOnClickListener {
                 notifEdit.onEditClick(data)

@@ -30,6 +30,9 @@
             android:name="View.Cure.CureCreate"
             android:exported="false" />
         <activity
+            android:name="View.Cure.CureSingle"
+            android:exported="false" />
+        <activity
             android:name="View.Cure.CureList"
             android:exported="true">
             <intent-filter>

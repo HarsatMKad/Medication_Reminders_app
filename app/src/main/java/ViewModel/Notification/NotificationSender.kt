@@ -25,7 +25,6 @@ class NotificationSender(context: Context) {
         createNotificationChannel()
     }
 
-    //Создает повторяющееся уведомление
     @RequiresApi(Build.VERSION_CODES.O)
     fun addSend(notification: Notification) {
         val data = Data.Builder()

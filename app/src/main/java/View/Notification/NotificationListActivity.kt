@@ -76,13 +76,11 @@ class NotificationListActivity : AppCompatActivity(), NotifClickDeleteInterface,
         Toast.makeText(this, "Удалено", Toast.LENGTH_SHORT).show()
     }
     override fun onEditClick(notification: NotificationWithCure) {
-
         val notif = SerializableNotification(notification.notification.id,
             notification.notification.hours,
             notification.notification.minutes,
             notification.notification.period,
             notification.notification.cureId.toInt())
-
         val intent = Intent(this, EditNotificationActivity::class.java)
 
         intent.putExtra("notification", notif)

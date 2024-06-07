@@ -16,7 +16,6 @@ class CureCreate : AppCompatActivity() {
     lateinit var cureDescription: EditText
     lateinit var cureInstruction: EditText
     lateinit var cureDosage: EditText
-    lateinit var cureFrequency: EditText
     lateinit var saveButton: Button
     lateinit var backButton: Button
 
@@ -43,14 +42,12 @@ class CureCreate : AppCompatActivity() {
             cureDescription.setText(intent.getStringExtra("cureDescription"))
             cureInstruction.setText(intent.getStringExtra("cureInstruction"))
             cureDosage.setText(intent.getIntExtra("cureDosage", 0).toString())
-            cureFrequency.setText(intent.getLongExtra("cureFrequency", 0).toString())
         }
 
         saveButton.setOnClickListener {
             if (cureTitle.text.toString().isNotEmpty() &&
                 cureDescription.toString().isNotEmpty() &&
                 cureDosage.toString().isNotEmpty() &&
-                cureFrequency.toString().isNotEmpty() &&
                 cureInstruction.toString().isNotEmpty()
             ) {
                 val cure: Cure
