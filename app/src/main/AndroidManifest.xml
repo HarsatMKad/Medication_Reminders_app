@@ -27,6 +27,9 @@
             android:name="View.Journal.JournalList"
             android:exported="false" />
         <activity
+            android:name="View.Cure.CureSingle"
+            android:exported="false" />
+        <activity
             android:name="View.Cure.CureCreate"
             android:exported="false" />
         <activity
