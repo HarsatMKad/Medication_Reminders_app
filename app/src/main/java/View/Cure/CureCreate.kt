@@ -1,6 +1,6 @@
-package View
+package View.Cure
 
-import ViewModel.CureViewModel
+import ViewModel.Cure.CureViewModel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.medication_reminders_app.R
-import com.example.medication_reminders_app.data.Cure.Cure
+import Model.Cure.Cure
 
 class CureCreate : AppCompatActivity() {
     lateinit var cureTitle: EditText

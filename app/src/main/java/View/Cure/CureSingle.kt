@@ -1,6 +1,6 @@
-package View
+package View.Cure
 
-import ViewModel.CureViewModel
+import ViewModel.Cure.CureViewModel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

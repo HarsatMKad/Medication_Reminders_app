@@ -1,4 +1,4 @@
-package com.example.medication_reminders_app.data.Cure
+package Model.Cure
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -7,7 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.medication_reminders_app.data.Cure.Cure
+import Model.Cure.Cure
 
 @Dao
 interface CuresDao {

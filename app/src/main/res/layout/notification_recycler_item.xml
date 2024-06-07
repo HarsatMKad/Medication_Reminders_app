@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/black_shade_2"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    android:background="@color/black_shade_1">
 
     <TextView
         android:id="@+id/nameCureNote"
@@ -14,7 +14,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@color/black_shade_2"
+        android:background="@color/black_shade_1"
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="30dp"
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:background="@color/black_shade_2"
+        android:background="@color/black_shade_1"
         android:text="00:00"
         android:textColor="@color/white"
         android:textSize="16dp"
@@ -75,7 +75,7 @@
         android:layout_width="150dp"
         android:layout_height="26dp"
         android:layout_marginTop="5dp"
-        android:background="@color/black_shade_2"
+        android:background="@color/black_shade_1"
         android:text="Дозировка:"
         android:textColor="@color/white"
         android:textSize="16dp"

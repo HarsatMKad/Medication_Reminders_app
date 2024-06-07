@@ -30,15 +30,16 @@
 
         <TextView
             android:id="@+id/textViewDate"
-            android:layout_width="132dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="28dp"
+            android:layout_width="167dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="5dp"
             android:padding="4dp"
             android:text="Дата"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/textViewDosage"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewName"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.41" />
 

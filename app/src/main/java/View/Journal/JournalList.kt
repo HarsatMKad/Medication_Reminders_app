@@ -1,6 +1,6 @@
-package View
+package View.Journal
 
-import ViewModel.JournalViewModel
+import ViewModel.Journal.JournalViewModel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medication_reminders_app.R
-import com.example.medication_reminders_app.data.Journal.Journal
+import Model.Journal.Journal
+import View.Cure.CureList
 
 class JournalList : AppCompatActivity(), JournalDeleteInterface {
     lateinit var viewModel: JournalViewModel

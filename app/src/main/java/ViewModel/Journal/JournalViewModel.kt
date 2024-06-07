@@ -1,4 +1,4 @@
-package ViewModel
+package ViewModel.Journal
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

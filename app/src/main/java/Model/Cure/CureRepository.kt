@@ -1,4 +1,4 @@
-package com.example.medication_reminders_app.data.Cure
+package Model.Cure
 
 import androidx.lifecycle.LiveData
 

@@ -1,9 +1,9 @@
-package View
+package View.Notification
 
-import ViewModel.JournalViewModel
-import ViewModel.NotificationSender
-import ViewModel.NotificationViewModel
-import ViewModel.NotificationWithCureViewModel
+import ViewModel.Journal.JournalViewModel
+import ViewModel.Notification.NotificationSender
+import ViewModel.Notification.NotificationViewModel
+import ViewModel.Notification.NotificationWithCureViewModel
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -16,9 +16,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medication_reminders_app.R
-import com.example.medication_reminders_app.data.Journal.Journal
-import com.example.medication_reminders_app.data.Notification.Notification
-import com.example.medication_reminders_app.data.Notification.NotificationWithCure
+import Model.Journal.Journal
+import Model.Notification.Notification
+import Model.Notification.NotificationWithCure
+import View.Cure.CureList
 import java.io.Serializable
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -32,7 +33,8 @@ class SerializableNotification(
     val cureId: Int): Serializable
 
 class NotificationListActivity : AppCompatActivity(), NotifClickDeleteInterface,
-    NotifClickEditInterface, NotifClickAcceptInterface, NotifClickPutoffInterface, timeOverInterface {
+    NotifClickEditInterface, NotifClickAcceptInterface, NotifClickPutoffInterface,
+    timeOverInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notification_list)

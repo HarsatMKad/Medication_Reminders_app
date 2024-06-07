@@ -1,4 +1,4 @@
-package com.example.medication_reminders_app.data.Journal
+package Model.Journal
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

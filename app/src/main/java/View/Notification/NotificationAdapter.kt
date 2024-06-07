@@ -1,4 +1,4 @@
-package View
+package View.Notification
 
 import android.content.Context
 import android.os.Build
@@ -11,8 +11,9 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medication_reminders_app.R
-import com.example.medication_reminders_app.data.Notification.Notification
-import com.example.medication_reminders_app.data.Notification.NotificationWithCure
+import Model.Notification.Notification
+import Model.Notification.NotificationWithCure
+import android.util.Log
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -25,7 +26,8 @@ class NotificationAdapter(val context: Context,
                           val notifDel: NotifClickDeleteInterface,
                           val notifAcept: NotifClickAcceptInterface,
                           val notifPutoff: NotifClickPutoffInterface,
-                          val forTimerUpdate: timeOverInterface): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+                          val forTimerUpdate: timeOverInterface
+): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
     private val notifications = ArrayList<NotificationWithCure>()
     class readyNotifHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleText = itemView.findViewById<TextView>(R.id.nameCureNoteReady)
@@ -148,10 +150,12 @@ class NotificationAdapter(val context: Context,
                     if(data.notification.hours <= 7){
                         dateNow2 = LocalDate.now().plusDays(1)
                     }
-                    val dlate2 = LocalDateTime.of(dateNow2, LocalTime.of(data.notification.hours, data.notification.minutes)).plusMinutes(5)
+                    val dlate2 = LocalDateTime.of(dateNow2, LocalTime.of(data.notification.hours, data.notification.minutes))
                     val difference2 = Duration.between(dnow2, dlate2).seconds/60
 
-                    if(difference2 <= 5){
+                    Log.v("dif", difference2.toString())
+
+                    if(difference2 <= -5){
                         forTimerUpdate.timeOverForNotification(data)
                     }
                 }

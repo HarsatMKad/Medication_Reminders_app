@@ -8,38 +8,39 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewJournal"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="60dp"
+        android:paddingBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/journal_rv_item_red" />
 
     <Button
         android:id="@+id/buttonBack"
         android:layout_width="141dp"
         android:layout_height="60dp"
-        android:text="Лекарства"
+        android:text="назад"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/recyclerViewJournal"
         app:layout_constraintHorizontal_bias="0.944"
-        app:layout_constraintStart_toStartOf="@+id/recyclerViewJournal"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recyclerViewJournal"
         app:layout_constraintVertical_bias="0.976" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="141dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="16dp"
-        android:text="Уведомления"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewJournal"
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="История приёма"
+        android:textColor="@color/white"
+        android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="@+id/recyclerViewJournal"
-        app:layout_constraintTop_toTopOf="@+id/recyclerViewJournal"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
-package com.example.medication_reminders_app.data.Journal
+package Model.Journal
 
 import androidx.lifecycle.LiveData
-import com.example.medication_reminders_app.data.Journal.Journal
-import com.example.medication_reminders_app.data.Journal.JournalsDao
+import Model.Journal.Journal
+import Model.Journal.JournalsDao
 
 class JournalRepository(private val journalDao: JournalsDao) {
     val allJournals: LiveData<List<Journal>> = journalDao.getAllJournals()

@@ -1,4 +1,4 @@
-package com.example.medication_reminders_app.data.Notification
+package Model.Notification
 
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
@@ -7,7 +7,7 @@ import androidx.room.ForeignKey
 import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.PrimaryKey
 import androidx.room.Relation
-import com.example.medication_reminders_app.data.Cure.Cure
+import Model.Cure.Cure
 
 @Entity(tableName = "notification",
     foreignKeys = arrayOf(

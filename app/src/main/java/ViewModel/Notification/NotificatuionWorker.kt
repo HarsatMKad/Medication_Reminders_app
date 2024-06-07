@@ -1,4 +1,4 @@
-package ViewModel
+package ViewModel.Notification
 
 import View.Notification.NotificationListActivity
 import android.app.Application

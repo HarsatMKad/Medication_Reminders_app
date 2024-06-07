@@ -1,4 +1,4 @@
-package com.example.medication_reminders_app.data.Notification
+package Model.Notification
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -7,8 +7,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.medication_reminders_app.data.Notification.Notification
-import com.example.medication_reminders_app.data.Notification.NotificationWithCure
+import Model.Notification.Notification
+import Model.Notification.NotificationWithCure
 
 @Dao
 interface NotificationsDao {

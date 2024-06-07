@@ -1,4 +1,4 @@
-package View
+package View.Cure
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,12 +8,13 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medication_reminders_app.R
-import com.example.medication_reminders_app.data.Cure.Cure
+import Model.Cure.Cure
 
 class CureAdapter(val context: Context,
                   val cureDeleteInterface: CureDeleteInterface,
                   val cureEditInterface: CureEditInterface,
-                  val cureClickInterface: CureClickInterface) :
+                  val cureClickInterface: CureClickInterface
+) :
     RecyclerView.Adapter<CureAdapter.ViewHolder>() {
 
     private val allCures = ArrayList<Cure>()

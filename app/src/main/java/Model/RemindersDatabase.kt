@@ -1,15 +1,15 @@
-package com.example.medication_reminders_app.data
+package Model
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.medication_reminders_app.data.Cure.Cure
-import com.example.medication_reminders_app.data.Cure.CuresDao
-import com.example.medication_reminders_app.data.Journal.Journal
-import com.example.medication_reminders_app.data.Journal.JournalsDao
-import com.example.medication_reminders_app.data.Notification.Notification
-import com.example.medication_reminders_app.data.Notification.NotificationsDao
+import Model.Cure.Cure
+import Model.Cure.CuresDao
+import Model.Journal.Journal
+import Model.Journal.JournalsDao
+import Model.Notification.Notification
+import Model.Notification.NotificationsDao
 
 @Database(entities = arrayOf(Cure::class, Notification::class, Journal::class), version = 1, exportSchema = false)
 abstract class RemindersDatabase : RoomDatabase() {

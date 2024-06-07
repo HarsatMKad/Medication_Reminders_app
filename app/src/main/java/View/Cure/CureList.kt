@@ -1,6 +1,6 @@
-package View
+package View.Cure
 
-import ViewModel.CureViewModel
+import ViewModel.Cure.CureViewModel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medication_reminders_app.R
-import com.example.medication_reminders_app.data.Cure.Cure
+import Model.Cure.Cure
+import View.Journal.JournalList
+import View.Notification.NotificationListActivity
 
 class CureList : AppCompatActivity(), CureClickInterface, CureDeleteInterface, CureEditInterface {
     lateinit var viewModel: CureViewModel

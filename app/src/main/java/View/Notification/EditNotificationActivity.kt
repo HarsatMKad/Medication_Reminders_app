@@ -1,8 +1,8 @@
-package View
+package View.Notification
 
-import ViewModel.CureViewModel
-import ViewModel.NotificationSender
-import ViewModel.NotificationViewModel
+import ViewModel.Cure.CureViewModel
+import ViewModel.Notification.NotificationSender
+import ViewModel.Notification.NotificationViewModel
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Build
@@ -19,7 +19,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.medication_reminders_app.R
-import com.example.medication_reminders_app.data.Notification.Notification
+import Model.Notification.Notification
 
 class EditNotificationActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
     var hour = 0

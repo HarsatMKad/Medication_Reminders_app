@@ -1,4 +1,4 @@
-package View
+package View.Journal
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medication_reminders_app.R
-import com.example.medication_reminders_app.data.Journal.Journal
+import Model.Journal.Journal
 
 class JournalAdapter(val context: Context,
-                     val journalDeleteInterface: JournalDeleteInterface) :
+                     val journalDeleteInterface: JournalDeleteInterface
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val allJournals = ArrayList<Journal>()
