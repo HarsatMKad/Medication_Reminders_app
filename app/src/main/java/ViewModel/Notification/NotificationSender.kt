@@ -32,11 +32,8 @@ class NotificationSender(context: Context) {
         data.putString("text", notification.shortDescription)
         data.putString("mainText", notification.description)
 
-        val dnow = LocalDateTime.now().plusHours(7)
+        val dnow = LocalDateTime.now()
         var dateNow = LocalDate.now()
-        if(notification.hours <= 7){
-            dateNow = LocalDate.now().plusDays(1)
-        }
         var dlate = LocalDateTime.of(dateNow, LocalTime.of(notification.hours, notification.minutes))
         var difference = Duration.between(dnow, dlate).seconds/60
 
