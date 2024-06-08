@@ -38,7 +38,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
-        android:text="Испория"
+        android:text="История"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.027"
