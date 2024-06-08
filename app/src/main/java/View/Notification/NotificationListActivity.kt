@@ -133,7 +133,7 @@ class NotificationListActivity : AppCompatActivity(), NotifClickDeleteInterface,
         val notificationViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(
             NotificationViewModel::class.java)
 
-        val curentDate = LocalDateTime.now().plusHours(7)
+        val curentDate = LocalDateTime.now()
         val dtfCustom = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
         val dateString = curentDate.format(dtfCustom)
 
