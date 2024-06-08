@@ -76,7 +76,7 @@ class NotificationAdapter(val context: Context,
                 difference = Duration.between(dnow, dlate).seconds/60
             }
 
-            difference += (notification.notification.period-1) *60*24
+            difference += (notification.notification.period-1) * 60 * 24
 
             if(difference/60 >= 2) {
                 timerText.text = (difference/60).toString() + " ч."
