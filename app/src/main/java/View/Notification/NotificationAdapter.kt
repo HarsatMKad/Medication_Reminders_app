@@ -63,11 +63,9 @@ class NotificationAdapter(val context: Context,
             titleText.setText(notification.cure.title)
             doseText.setText("Дозировка: " + notification.cure.dosage.toString())
 
-            val dnow = LocalDateTime.now().plusHours(7)
+            val dnow = LocalDateTime.now()
             var dateNow = LocalDate.now()
-            if(notification.notification.hours <= 7){
-                dateNow = LocalDate.now().plusDays(1)
-            }
+
             var dlate = LocalDateTime.of(dateNow, LocalTime.of(notification.notification.hours, notification.notification.minutes))
             var difference = Duration.between(dnow, dlate).seconds/60
 
@@ -76,7 +74,7 @@ class NotificationAdapter(val context: Context,
                 difference = Duration.between(dnow, dlate).seconds/60
             }
 
-            difference += (notification.notification.period-1) * 60 * 24
+            difference += notification.notification.days * 60 * 24
 
             if(difference/60 >= 2) {
                 timerText.text = (difference/60).toString() + " ч."
@@ -107,11 +105,8 @@ class NotificationAdapter(val context: Context,
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun getItemViewType(position: Int): Int {
-        val dnow = LocalDateTime.now().plusHours(7)
-        var dateNow = LocalDate.now()
-        if(notifications[position].notification.hours <= 7){
-            dateNow = LocalDate.now().plusDays(1)
-        }
+        val dnow = LocalDateTime.now()
+        val dateNow = LocalDate.now()
         var dlate = LocalDateTime.of(dateNow, LocalTime.of(notifications[position].notification.hours, notifications[position].notification.minutes)).plusMinutes(5)
         var difference = Duration.between(dnow, dlate).seconds/60
 
@@ -136,21 +131,16 @@ class NotificationAdapter(val context: Context,
         if(holder.itemViewType == READY_TYPE){
             (holder as readyNotifHolder).bind(data)
 
-            val dnow = LocalDateTime.now().plusHours(7)
+            val dnow = LocalDateTime.now()
             var dateNow = LocalDate.now()
-            if(data.notification.hours <= 7){
-                dateNow = LocalDate.now().plusDays(1)
-            }
+
             val dlate = LocalDateTime.of(dateNow, LocalTime.of(data.notification.hours, data.notification.minutes)).plusMinutes(10)
             val difference = Duration.between(dnow, dlate).toMillis()
 
             val o = object : CountDownTimer(difference, difference - 1) {
                 override fun onTick(millisUntilFinished: Long) {
-                    val dnow2 = LocalDateTime.now().plusHours(7)
+                    val dnow2 = LocalDateTime.now()
                     var dateNow2 = LocalDate.now()
-                    if(data.notification.hours <= 7){
-                        dateNow2 = LocalDate.now().plusDays(1)
-                    }
                     val dlate2 = LocalDateTime.of(dateNow2, LocalTime.of(data.notification.hours, data.notification.minutes))
                     val difference2 = Duration.between(dnow2, dlate2).seconds/60
 
